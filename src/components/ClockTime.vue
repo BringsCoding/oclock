@@ -1,7 +1,8 @@
 <template>
   <p class="lights">Lights</p>
   <div class="clocktime">
-    {{ dateTime.hours }}:
+    <span v-if="dateTime.hours <= 9">{{ "0" + dateTime.hours }}</span>
+    <span v-else>{{ dateTime.hours }}</span>:
     <span v-if="dateTime.minutes <= 9">{{ "0" + dateTime.minutes }}</span>
     <span v-else>{{ dateTime.minutes }}</span
     >:
