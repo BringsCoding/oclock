@@ -1,20 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <ClockTime />
+  <button @click="goToDark" type="button" class="btn btn-primary">
+    Darke Mode
+  </button>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import ClockTime from "./components/ClockTime.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    ClockTime,
+  },
+  methods: {
+    goToDark() {
+      document.documentElement.classList.toggle("dark-mode");
+    },
   },
 };
 </script>
 
 <style>
+html,
+body {
+  background-color: rgb(209, 149, 149);
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,5 +34,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.dark-mode {
+  filter: invert(100%);
 }
 </style>
